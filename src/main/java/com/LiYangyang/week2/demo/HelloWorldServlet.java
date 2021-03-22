@@ -1,13 +1,11 @@
 package com.LiYangyang.week2.demo;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-//now its just a java class
-//extend HttpServlet
+//now its jupServlet
 public class HelloWorldServlet {
 
     public void  doGet(HttpServletRequest request, HttpServletResponse response)
