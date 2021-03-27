@@ -4,8 +4,39 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <!--add code about new servlet-->
-    <servlet>
+    <!--//String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        //String url = "jdbc:sqlserver://localhost;databaseName=userdb;";
+        //String username = "sa";
+        //String password = "123456";-->
+    <!--<init-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </init-param>
+    <init-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </init-param>
+    <init-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost;databaseName=userdb;</param-value>
+    </init-param>
+    <init-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </init-param>
+    <init-param>
+        <param-name>password</param-name>
+        <param-value>123456</param-value>
+    </init-param>
+
+    <load-on-startup>1</load-on-startup>
+
+</servlet>
+-->
+
+<servlet>
         <servlet-name>anyname</servlet-name><!--give any name-->
+        <!--suppress WebProperties -->
         <servlet-class>com.LiYangyang.week2.demo.HelloWorldServlet</servlet-class><!--package +name of servlet-->
     </servlet>
     <servlet>
@@ -16,6 +47,12 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.LiYangyang.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+    <!--suppress ServletWithoutMappingInspection -->
+        <servlet-name>JDBCDemoServlet</servlet-name>
+    <servlet-class>com.LiYangyang.week4.demo.JDBCDemoServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>anyname</servlet-name>
         <url-pattern>/hello</url-pattern><!--url must start with/-->
