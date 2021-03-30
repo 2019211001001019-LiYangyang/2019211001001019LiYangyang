@@ -47,11 +47,7 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.LiYangyang.week3.demo.RegisterServlet</servlet-class>
     </servlet>
-    <servlet>
-    <!--suppress ServletWithoutMappingInspection -->
-        <servlet-name>JDBCDemoServlet</servlet-name>
-    <servlet-class>com.LiYangyang.week4.demo.JDBCDemoServlet</servlet-class>
-    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>anyname</servlet-name>
