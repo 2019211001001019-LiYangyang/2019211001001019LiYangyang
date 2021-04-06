@@ -34,7 +34,7 @@
 </servlet>
 -->
 
-<servlet>
+    <servlet>
         <servlet-name>anyname</servlet-name><!--give any name-->
         <!--suppress WebProperties -->
         <servlet-class>com.LiYangyang.week2.demo.HelloWorldServlet</servlet-class><!--package +name of servlet-->
@@ -47,6 +47,12 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.LiYangyang.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <!--
+    <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week4.demo.ConfigDemoServlet</servlet-class>
+    </servlet>
+-->
 
 
     <servlet-mapping>
@@ -61,5 +67,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-
+<!--
+    <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+-->
 </web-app>

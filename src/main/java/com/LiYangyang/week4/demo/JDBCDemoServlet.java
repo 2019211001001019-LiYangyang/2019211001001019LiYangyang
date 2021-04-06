@@ -18,7 +18,7 @@ import java.sql.SQLException;
             @WebInitParam(name ="url", value = "jdbc:sqlserver://localhost:1433;databaseName=userdb;"),
             @WebInitParam(name ="username", value = "sa"),
             @WebInitParam(name ="password", value = "123456")
-    }
+    },loadOnStartup = 1
 
 )//end of webservlet
 public class JDBCDemoServlet extends HttpServlet {
@@ -50,8 +50,8 @@ public class JDBCDemoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("i am in doGet()");
-   /* String  sql="select * from usertable";
-        try {
+        String  sql="select * from usertable";
+         /* try {
             ResultSet rs=con.createStatement().executeQuery(sql);
             while(rs.next()) {
             }
