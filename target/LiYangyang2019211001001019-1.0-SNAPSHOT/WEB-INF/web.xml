@@ -47,12 +47,33 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.LiYangyang.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week5.demo.LoginServlet</servlet-class>
+    </servlet>
     <!--
     <servlet>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <servlet-class>com.LiYangyang.week4.demo.ConfigDemoServlet</servlet-class>
     </servlet>
 -->
+
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost:1433;databaseName=userdb;</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>123456</param-value>
+    </context-param>
 
 
     <servlet-mapping>
@@ -66,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 <!--
     <servlet-mapping>

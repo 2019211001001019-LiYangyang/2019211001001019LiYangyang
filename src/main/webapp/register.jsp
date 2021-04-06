@@ -16,7 +16,7 @@
 <%@include file="/header.jsp"%>
 This is my JSP page.<br>
 <h1>New User Registration</h1>
-<form method="post" action="/LiuMeng2019211001000701_war_exploded/register">
+<form method="post" action="Register">
     <table>
         <tr> <td>Username:</td> <td><input type="text" name="Username" required><br/></td></tr>
         <tr> <td>password:</td> <td><input type="password" name="password" required minlength="8"><br/></td></tr>
@@ -33,4 +33,3 @@ This is my JSP page.<br>
     </table>
 </form>
 <%@include file="/footer.jsp"%>
-© 2021 GitHub, Inc.<%@include file="footer.jsp"%>
