@@ -51,6 +51,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.LiYangyang.week5.demo.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.LiYangyang.controller.HomeServlet</servlet-class>
+    </servlet>
     <!--
     <servlet>
         <servlet-name>ConfigDemoServlet</servlet-name>
