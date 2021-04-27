@@ -15,7 +15,7 @@ public class UserDao implements IUserDao{
     public boolean saveUser(Connection con, User user) throws SQLException {
         String sql="insert into Usertable values(?,?,?,?,?)";
         PreparedStatement pstmt= con.prepareStatement(sql);
-        pstmt.setString(1,user.getUsernamne());
+        pstmt.setString(1,user.getUsername());
         pstmt.setString(2,user.getPassword());
         pstmt.setString(3,user.getEmail());
         pstmt.setString(4,user.getGender());
@@ -38,7 +38,7 @@ public class UserDao implements IUserDao{
     public int updateUser(Connection con, User user) throws SQLException {
         String sql="update Usertable set username=?,password=?,email=?,gender=?,birthdate=? where id=?";
         PreparedStatement pstmt= con.prepareStatement(sql);
-        pstmt.setString(1,user.getUsernamne());
+        pstmt.setString(1,user.getUsername());
         pstmt.setString(2,user.getPassword());
         pstmt.setString(3,user.getEmail());
         pstmt.setString(4,user.getGender());
@@ -57,7 +57,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -77,7 +77,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -98,7 +98,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -119,7 +119,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -140,7 +140,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -161,7 +161,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -182,7 +182,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
@@ -202,7 +202,7 @@ public class UserDao implements IUserDao{
         if(rs.next()){
             user=new User();
             user.setId(rs.getInt("id"));
-            user.setUsernamne(rs.getString("username"));
+            user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));

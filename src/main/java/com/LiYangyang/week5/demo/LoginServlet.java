@@ -6,9 +6,7 @@ import com.LiYangyang.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -24,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("WEB-INF/viewsf/login.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
 
     @Override
@@ -33,18 +31,46 @@ public class LoginServlet extends HttpServlet {
         String password=request.getParameter("password");
         UserDao userDao=new UserDao();
         try {
+            //lets change code to make MVC
             User user=userDao.findByUsernamePassword(con,Username, password);
             if(user!=null){
+                //valid
+                //week 8 code
+                /* Cookie c=new Cookie("session id",""+user.getId());
+                c.setMaxAge(10*60);
+                response.addCookie(c);
                 request.setAttribute("user",user);
-                request.getRequestDispatcher("WEB-INF/viewsf/userInfo.jsp").forward(request,response);
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);*/
+                //add code for remember me
+                String rememberMe=request.getParameter("rememberMe");//1=checked,null if checked
+                if (rememberMe!=null && rememberMe.equals("1")){
+                    Cookie usernameCookie=new Cookie("cUsername",user.getUsername());
+                    Cookie passwordCookie=new Cookie("cPassword",user.getPassword());
+                    Cookie rememberMeCookie=new Cookie("cRememberMe",rememberMe);
+
+                    usernameCookie.setMaxAge(5);//5 sec -test -- 15 day = 60*60*24*15
+                    passwordCookie.setMaxAge(5);
+                    rememberMeCookie.setMaxAge(5);
+
+                    response.addCookie(usernameCookie);
+                    response.addCookie(passwordCookie);
+                    response.addCookie(rememberMeCookie);
+                }
+                //create a session
+                 HttpSession session=request.getSession();//create
+                System.out.println("session id-->"+session.getId());//session Id
+                //set user model into request
+                session.setMaxInactiveInterval(10);
+                session.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
             }else{
                 request.setAttribute("message","Username or password Error!!!");
-                request.getRequestDispatcher("WEB-INF/viewsf/login.jsp").forward(request,response);
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        /*String sql="select * from Usertable where username=? and password=?";
+        /*String sql="select * from usertable where username=? and password=?";
         PreparedStatement pstmt= null;
         try {
             pstmt = con.prepareStatement(sql);
