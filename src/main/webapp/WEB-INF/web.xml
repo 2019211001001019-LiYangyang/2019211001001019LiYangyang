@@ -79,7 +79,7 @@
 
     <servlet-mapping>
         <servlet-name>anyname</servlet-name>
-        <url-pattern>/hello</url-pattern><!--url must start with/-->
+        <url-pattern>/hello2</url-pattern><!--url must start with/-->
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LifeCycleServlet</servlet-name>
@@ -96,6 +96,35 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
+    <!-- chain if filter -->
+
+    <!-- 2nd - write after 1at one in web.xml-->
+    <filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.LiYangyang.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/hello</url-pattern><!-- url of HelloServlet -this filter is only for HelloServlet-->
+    </filter-mapping>
+    <!-- 3rd one-->
+    <filter>
+        <filter-name>loggerFilter</filter-name>
+        <filter-class>com.LiYangyang.filter.LoggerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggerFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    <!-- 1st -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.LiYangyang.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
 <!--
     <servlet-mapping>
         <servlet-name>ConfigDemoServlet</servlet-name>
