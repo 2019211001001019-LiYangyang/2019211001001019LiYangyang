@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
-class HelloWordServlet extends HttpServlet {
+public class HelloWorldServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
         PrintWriter writer= response.getWriter();
-        writer.println("Name:Li Yangyang");
+        writer.println("Name:LiYangyang");
         writer.println("ID:2019211001001019");
         Date today = new Date();
         writer.println("Date and time "+today);

@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AdminHomeServlet", value = "/AdminHome")
+@WebServlet(name = "AdminHomeServlet", value = "/Admin/Home")
 public class AdminHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -15,7 +15,7 @@ public class AdminHomeServlet extends HttpServlet {
         if (session!=null&& session.getAttribute("user")!=null){
             User user=(User) session.getAttribute("user");
             if ("admin".equals(user.getUsername())){//admin user name must be in table
-                request.getRequestDispatcher("..WEB-INF/views/admin/indes.jsp").forward(request,response);
+                request.getRequestDispatcher("..WEB-INF/views/admin/index.jsp").forward(request,response);
             }else {
                 //have session but its not admin user
                 session.invalidate();//kill session right now
