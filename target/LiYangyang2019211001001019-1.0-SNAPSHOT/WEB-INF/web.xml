@@ -35,29 +35,66 @@
 -->
 
     <servlet>
-        <servlet-name>anyname</servlet-name><!--give any name-->
-        <!--suppress WebProperties -->
-        <servlet-class>com.LiYangyang.week2.demo.HelloWorldServlet</servlet-class><!--package +name of servlet-->
+        <servlet-name>anyName</servlet-name>
+        <servlet-class>com.LiYangyang.week2.demo.HelloWorldServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>anyName</servlet-name>
+        <url-pattern>/hello1</url-pattern>
+    </servlet-mapping>
+
     <servlet>
-        <servlet-name>LifeCycleServlet</servlet-name><!--give any name-->
-        <servlet-class>com.LiYangyang.week3.demo.LifeCycleServlet</servlet-class><!--package +name of servlet-->
+        <servlet-name>safety</servlet-name>
+        <jsp-file>/week2/register.jsp</jsp-file>
     </servlet>
-    <servlet>
+    <servlet-mapping>
+        <servlet-name>safety</servlet-name>
+        <url-pattern>/week2/register.jsp</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.LiYangyang.week3.demo.RegisterServlet</servlet-class>
+        <servlet-class>com.LiYangyang.week3.RegisterServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>-->
+
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.LiYangyang.week5.demo.LoginServlet</servlet-class>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week3.demo.LifeCycleServlet</servlet-class>
     </servlet>
- 
-    <!--
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+<!--
     <servlet>
-        <servlet-name>ConfigDemoServlet</servlet-name>
-        <servlet-class>com.LiYangyang.week4.demo.ConfigDemoServlet</servlet-class>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week6.demo.SearchServlet</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
 -->
+    <!--<servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week4.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>Li Yangyang</param-value>
+        </init-param>
+        <init-param>
+            <param-name>studentId</param-name>
+            <param-value>2019211001001019</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>-->
 
     <context-param>
         <param-name>driver</param-name>
@@ -65,7 +102,7 @@
     </context-param>
     <context-param>
         <param-name>url</param-name>
-        <param-value>jdbc:sqlserver://localhost:1433;databaseName=userdb;</param-value>
+        <param-value>jdbc:sqlserver://localhost;databaseName=userdb;</param-value>
     </context-param>
     <context-param>
         <param-name>username</param-name>
@@ -76,59 +113,43 @@
         <param-value>123456</param-value>
     </context-param>
 
+    <!--<servlet>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week4.JDBCDemoServlet</servlet-class>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:sqlserver://localhost;databaseName=userdb;</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>sa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>-->
 
-    <servlet-mapping>
-        <servlet-name>anyname</servlet-name>
-        <url-pattern>/hello2</url-pattern><!--url must start with/-->
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <url-pattern>/Life</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-    <!-- chain if filter -->
-
-    <!-- 2nd - write after 1at one in web.xml-->
-    <filter>
+    <!--<filter>
         <filter-name>HelloFilter</filter-name>
         <filter-class>com.LiYangyang.filter.HelloFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern><!-- url of HelloServlet -this filter is only for HelloServlet-->
-    </filter-mapping>
-    <!-- 3rd one-->
-    <filter>
-        <filter-name>loggerFilter</filter-name>
-        <filter-class>com.LiYangyang.filter.LoggerFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoggerFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-    <!-- 1st -->
-    <filter>
-        <filter-name>AuthFilter</filter-name>
-        <filter-class>com.LiYangyang.filter.AuthFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>AuthFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
-<!--
-    <servlet-mapping>
-        <servlet-name>ConfigDemoServlet</servlet-name>
-        <url-pattern>/config</url-pattern>
-    </servlet-mapping>
--->
+        <url-pattern>/hello-servlet</url-pattern>
+    </filter-mapping>-->
+
 </web-app>

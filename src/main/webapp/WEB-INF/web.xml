@@ -69,7 +69,16 @@
         <servlet-name>LifeCycleServlet</servlet-name>
         <url-pattern>/life</url-pattern>
     </servlet-mapping>
-
+<!--
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.LiYangyang.week6.demo.SearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+-->
     <!--<servlet>
         <servlet-name>ConfigDemoServlet</servlet-name>
         <servlet-class>com.LiYangyang.week4.ConfigDemoServlet</servlet-class>
@@ -130,6 +139,7 @@
         <url-pattern>/jdbc</url-pattern>
     </servlet-mapping>-->
 
+
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
@@ -141,4 +151,5 @@
         <filter-name>HelloFilter</filter-name>
         <url-pattern>/hello-servlet</url-pattern>
     </filter-mapping>-->
+
 </web-app>

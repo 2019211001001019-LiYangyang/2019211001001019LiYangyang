@@ -53,7 +53,7 @@ public class RegisterServlet extends HttpServlet {
         writer.println("<br>Gender :"+Gender);
         writer.println("<br>Date :"+Date);
         writer.close();*/
-        String sql1="insert into Usertable values(?,?,?,?,?)";
+        String sql1="insert into usertable values(?,?,?,?,?)";
         PreparedStatement pstmt= null;
         try {
             pstmt = con.prepareStatement(sql1);

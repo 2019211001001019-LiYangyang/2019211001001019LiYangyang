@@ -13,7 +13,8 @@ public class UserDao implements IUserDao{
 
     @Override
     public boolean saveUser(Connection con, User user) throws SQLException {
-        String sql="insert into Usertable values(?,?,?,?,?)";
+        String sql="insert into usertable values(?,?,?,?,?)";
+
         PreparedStatement pstmt= con.prepareStatement(sql);
         pstmt.setString(1,user.getUsername());
         pstmt.setString(2,user.getPassword());
@@ -22,13 +23,12 @@ public class UserDao implements IUserDao{
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         pstmt.setString(5,formatter.format(user.getBirthdate()));
         int a=pstmt.executeUpdate();
-        if(a!=0) return true;
-        else return false;
+        return a != 0;
     }
 
     @Override
     public int deleteUser(Connection con, User user) throws SQLException {
-        String sql="delete from Usertable where id=?";
+        String sql="delete from usertable where id=?";
         PreparedStatement pstmt= con.prepareStatement(sql);
         pstmt.setInt(1,user.getId());
         return pstmt.executeUpdate();
@@ -49,7 +49,7 @@ public class UserDao implements IUserDao{
 
     @Override
     public User findById(Connection con, Integer id) throws SQLException {
-        String sql="select * from Usertable where id=?";
+        String sql="select * from usertable where id=?";
         PreparedStatement pstmt= con.prepareStatement(sql);
         pstmt.setInt(1,id);
         ResultSet rs= pstmt.executeQuery();
@@ -70,6 +70,7 @@ public class UserDao implements IUserDao{
     public User findByUsernamePassword(Connection con, String username, String password) throws SQLException {
         String sql="select * from Usertable where username=? and password=?";
         PreparedStatement pstmt= con.prepareStatement(sql);
+        System.out.println(username+password);
         pstmt.setString(1,username);
         pstmt.setString(2,password);
         ResultSet rs= pstmt.executeQuery();
