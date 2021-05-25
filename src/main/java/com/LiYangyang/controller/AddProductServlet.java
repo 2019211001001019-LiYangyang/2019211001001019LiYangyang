@@ -17,7 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "AddProductServlet", value = "/admin/AddProduct")
+@WebServlet(name = "AddProductServlet", value = "/admin/addProduct")
 @MultipartConfig(maxFileSize = 16177215)
 public class AddProductServlet extends HttpServlet {
     Connection con=null;
@@ -31,7 +31,7 @@ public class AddProductServlet extends HttpServlet {
         try {
             List<Category> categoryList=Category.findAllCategory(con);
             request.setAttribute("categoryList",categoryList);
-            String path="WEB-INF/views/admin/addProduct.jsp";
+            String path="/WEB-INF/views/admin/addProduct.jsp";
             request.getRequestDispatcher(path).forward(request,response);
         } catch (SQLException throwables) {
             throwables.printStackTrace();

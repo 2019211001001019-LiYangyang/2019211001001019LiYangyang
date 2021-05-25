@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 @WebServlet(
-        urlPatterns = {"/Register"}
+        urlPatterns = {"/register"}
 )
 
 public class RegisterServlet extends HttpServlet {
@@ -40,11 +40,11 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String Username=request.getParameter("Username");
+        String Username=request.getParameter("username");
         String password=request.getParameter("password");
-        String Email=request.getParameter("Email");
-        String Gender=request.getParameter("Gender");
-        String Date=request.getParameter("Date");
+        String Email=request.getParameter("email");
+        String Gender=request.getParameter("gender");
+        String Date=request.getParameter("birthdate");
 
         /*PrintWriter writer= response.getWriter();
         writer.println("<br>Username :"+Username);

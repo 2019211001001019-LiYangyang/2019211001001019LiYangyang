@@ -16,7 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "UpdateUserServlet", value = "/UpdateUser")//url
+@WebServlet(name = "UpdateUserServlet", value = "/updateUser")//url
 public class UpdateUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
