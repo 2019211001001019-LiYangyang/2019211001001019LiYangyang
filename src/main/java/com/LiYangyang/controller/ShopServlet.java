@@ -47,7 +47,7 @@ public class ShopServlet extends HttpServlet {
             throwables.printStackTrace();
         }
         request.setAttribute("productList",productList);
-        String path ="src/main/webapp/WEB-INF/views/shop.jsp";
+        String path ="/WEB-INF/views/shop.jsp";
         request.getRequestDispatcher(path).forward(request,response);
     }
 
