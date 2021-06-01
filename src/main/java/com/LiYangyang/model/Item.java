@@ -1,6 +1,8 @@
 package com.LiYangyang.model;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private Product product;
     private int quantity;
 
@@ -21,9 +23,10 @@ public class Item {
     }
 
     public Item(){
-
+        super();
     }
     public Item(Product product, int quantity) {
+        super();
         this.product = product;
         this.quantity = quantity;
     }

@@ -66,7 +66,7 @@ public class CartServlet extends HttpServlet {
         //add items into cart
         HttpSession session=request.getSession();
         int id=request.getParameter("productId")!=null?Integer.parseInt(request.getParameter("productId")):0;
-        int quantity=request.getParameter("quantity")!=null?Integer.parseInt(request.getParameter("quantity")):0;
+        int quantity=request.getParameter("quantity")!=null?Integer.parseInt(request.getParameter("quantity")):1;
         if (id==0||quantity==0){
             return;
         }
