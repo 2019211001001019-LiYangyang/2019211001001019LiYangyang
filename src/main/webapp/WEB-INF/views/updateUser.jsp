@@ -11,7 +11,7 @@
 <%
     User u=(User) session.getAttribute("user");
 %>
-<form method="post" action="Register">
+<form method="post" action="updateUser">
     <table>
         <tr> <td><input type="hidden" name="id" value="<%=u.getId()%>"></td></tr>
         <tr> <td>Username:</td> <td><input type="text" name="Username" value="<%=u.getUsername()%>" required><br/></td></tr>

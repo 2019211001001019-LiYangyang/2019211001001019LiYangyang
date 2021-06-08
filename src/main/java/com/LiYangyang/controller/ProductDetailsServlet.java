@@ -38,7 +38,7 @@ public class ProductDetailsServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        String path="src/main/webapp/WEB-INF/views/productDetails.jsp";
+        String path="/WEB-INF/views/productDetails.jsp";
         request.getRequestDispatcher(path).forward(request,response);
     }
 
