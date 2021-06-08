@@ -14,9 +14,9 @@
 <form method="post" action="updateUser">
     <table>
         <tr> <td><input type="hidden" name="id" value="<%=u.getId()%>"></td></tr>
-        <tr> <td>Username:</td> <td><input type="text" name="Username" value="<%=u.getUsername()%>" required><br/></td></tr>
-        <tr> <td>password:</td> <td><input type="password" name="password"  value="<%=u.getPassword()%>" required minlength="8"><br/></td></tr>
-        <tr> <td>Email:</td> <td><input type="email" name="Email" value="<%=u.getEmail()%>" required><br/></td></tr>
+        <tr> <td>Username:</td> <td><input type="text" name="Username" value="<%=u.getUsername()%>" ><br/></td></tr>
+        <tr> <td>password:</td> <td><input type="password" name="password"  value="<%=u.getPassword()%>" required minlength="4"><br/></td></tr>
+        <tr> <td>Email:</td> <td><input type="email" name="Email" value="<%=u.getEmail()%>" ><br/></td></tr>
         <tr>
             <td>Gender:</td>
             <td>
